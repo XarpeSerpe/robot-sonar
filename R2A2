@@ -1,0 +1,15 @@
+#include "motor_shield.h"
+
+RobotMovil R2A2;
+
+void setup()
+{
+  R2A2.forward(70,70,5000);
+  R2A2.reverse(255,255,500);
+  R2A2.rotate(255,500);
+  R2A2.rotate(255,-500);
+}
+
+void loop()
+{
+}
