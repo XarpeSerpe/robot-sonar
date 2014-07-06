@@ -1,58 +1,36 @@
-int dir_a = 12;
-int vel_a = 3;
-int freno_a = 9;
-int dir_b = 13;
-int vel_b = 11;
-int freno_b = 8;
+#include "motor_shield.h"
+
+RobotMovil bailarin;
 
 void setup()
 {
-pinMode(dir_a, OUTPUT);
-pinMode(vel_a, OUTPUT);
-pinMode(freno_a, OUTPUT);
-pinMode(dir_b, OUTPUT);
-pinMode(vel_b, OUTPUT);
-pinMode(freno_b, OUTPUT);
+
 }
 
 void loop()
 {
-derecha(100);
-delay(1000);
-izquierda(100);
-delay(1000);
-
-parar();
-delay(5000);
-
-adiante(100);
+bailarin.forward(80,80,700);
+bailarin.reverse(80,80,700);
+bailarin.rotate(80,500);
+bailarin.rotate(80,-500);
+bailarin.brake()
 delay(1000);
 
-parar();
-delay(5000);
-}
-
-void derecha(int potencia)
-{
-  digitalWrite(freno_a, LOW);
-  digitalWrite(dir_a, LOW);
-  analogWrite(vel_a, potencia);
-}
-void izquierda(int potencia)
-{
-  digitalWrite(freno_b, LOW);
-  digitalWrite(dir_b, LOW);
-  analogWrite(vel_b, potencia);
-}
-void adiante(int potencia)
-{
-  derecha(potencia);
-  izquierda(potencia);
-}
-void parar()
-{
-  digitalWrite(freno_a, HIGH);
-  digitalWrite(freno_b, HIGH);
-}
+bailarin.forward(150,150,700);
+bailarin.reverse(150,150,700);
+bailarin.rotate(150,500);
+bailarin.rotate(150,-500);
+bailarin.brake()
+delay(1000);
 
 
+bailarin.forward(200,80,1000);
+bailarin.forward(120,120,1500);
+bailarin.forward(80,200,1000);
+bailarin.forward(120,120,1500);
+bailarin.reverse(80,80,1000);
+bailarin.rotate(80,500);
+bailarin.rotate(80,-500);
+bailarin.brake()
+delay(1000);
+} 
